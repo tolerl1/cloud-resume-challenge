@@ -7,17 +7,17 @@ Being a recent graduate and entry-level professional during a pandemic is quite 
 This [16-step challenge](https://cloudresumechallenge.dev/instructions/) requires the creation of a website to showcase my resume with a site view counter. It dives deeper by requiring the use of AWS Lambda, API Gateway, and DynamoDB to operate the view counter, host the site on an S3 bucket, and have the site delivered over HTTPS using CloudFront. Additionally, this all must be automated using the AWS Serverless Application Model (SAM) and a CI/CD pipeline. 
 
 I completed the challenge by breaking the project into groups with similar tasks.  
-1. I started by designing my website using Bootstrap. Next, I created my CloudFront distribution and linked my S3 bucket as an origin so that the site is only accessible through CloudFront. Lastly, I purchased my domain and set the CNAME to point to CloudFront.
+1. I started by designing my website using Bootstrap. Next, I created a CloudFormation template to automatically deploy my CloudFront distribution linking an S3 bucket as an origin so that the site is only accessible through CloudFront. Lastly, I purchased my domain and set the CNAME to point to CloudFront.
 2. I created my development environment by installing python, aws cli, aws sam cli, and httpie. I used VSCode with the AWS and python plugins, as my IDE. 
 3. Creating the API, lambda function, and DynamoDB table was the most intensive part. A few essential items that I needed to learn:
-      - How these services worked in tandem
-      - How to create a table that updated a single record verse a table that would generate a record per visit
-      - Learn python
-      - How to call an API
+       - How these services worked in tandem
+       - How to create a table that updated a single record verse a table that would generate a record per visit
+       - Learn python
+       - How to call an API
 
-   For my lambda function, I used DynamoDB's atomic counter feature to update the table each time my API endpoint gets called. 
-   Additionally, I included a function to serialize / deserialize the response to bypass API Gateway's decimal encoder limitation.
-   My API uses a single GET method with CORS enabled. An XMLHttpRequest wrriten in JavaScript is used to call the API and displayed using a DOM element.
+    For my lambda function, I used DynamoDB's atomic counter feature to update the table each time my API endpoint gets called. 
+    Additionally, I included a function to serialize / deserialize the response to bypass API Gateway's decimal encoder limitation.
+    My API uses a single GET method with CORS enabled. An XMLHttpRequest wrriten in JavaScript is used to call the API and displayed using a DOM element.
 
 4. Lastly, I built a CI/CD pipeline for the front and back end of my site. My first pipeline uses GitHub actions and workflow 
    to push any changes in the master branch of my repo to S3. My second pipeline has the same functionality except it utilizes 
