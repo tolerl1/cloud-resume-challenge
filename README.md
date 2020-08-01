@@ -19,7 +19,6 @@ I completed the challenge by breaking the project into groups with similar tasks
    Additionally, I included a decimal encoder function so I could receive the body of the API request. 
    My API uses a single GET method with CORS enabled. The API is called using a XMLHttpRequest and displayed using a DOM element.
 
-4. Lastly, I built a CI/CD pipeline for the front and back end of my site. My first &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pipeline uses GitHub 
-   actions and workflow to push any changes in the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master branch of my repo to S3. My second pipeline has the same 
-   functionality except it utilizes AWS Code Deploy to build, test, and deploy my SAM template. Testing was performed by issuing a key/value payload 
-   to the lambda function.
+4. Lastly, I built a CI/CD pipeline for the front and back end of my site. My first pipeline uses GitHub actions and workflow 
+   to push any changes in the master branch of my repo to S3. My second pipeline has the same functionality except it utilizes 
+   AWS CodePiple and Code Deploy to build, test, and deploy my SAM template. Testing was performed by passing a key/value payload to the lambda function.
