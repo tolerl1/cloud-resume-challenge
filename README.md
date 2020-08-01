@@ -10,16 +10,16 @@ I completed the challenge by breaking the project into groups with similar tasks
 1. I started by designing my website using Bootstrap. Next, I created my CloudFront distribution and linked my S3 bucket as an origin so that the site is only accessible through CloudFront. Lastly, I purchased my domain and set the CNAME to point to CloudFront.
 2. I created my development environment by installing python, aws cli, aws sam cli, and httpie. I used VSCode with the AWS and python plugins, as my IDE. 
 3. Creating the API, lambda function, and DynamoDB table was the most intensive part. A few essential items that I needed to learn:
+      - How these services worked in tandem
+      - How to create a table that updated a single record verse a table that would generate a record per visit
+      - Learn python
+      - How to call an API
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - How these services worked in tandem
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - How to create a table that updated a single record verse a table that &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;would generate a record per visit
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Learn python
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - How to call an API
+   For my lambda function, I used DynamoDB's atomic counter feature to update the table each time my API endpoint gets called. 
+   Additionally, I included a decimal encoder function so I could receive the body of the API request. 
+   My API uses a single GET method with CORS enabled. The API is called using a XMLHttpRequest and displayed using a DOM element.
 
-  &nbsp;&nbsp;&nbsp;&nbsp;  For my lambda function, I used DynamoDB's atomic counter feature to 
-  &nbsp;&nbsp;&nbsp;&nbsp;  update the table each time my API endpoint gets called. Additionally, I 
-  &nbsp;&nbsp;&nbsp;&nbsp;  included a decimal encoder function so I could receive the body of the API 
-  &nbsp;&nbsp;&nbsp;&nbsp;  request. My API uses a single GET method with CORS enabled. The API is 
-  &nbsp;&nbsp;&nbsp;&nbsp;  called using a XMLHttpRequest and displayed using a DOM element.
-
-4.&nbsp;&nbsp;Lastly, I built a CI/CD pipeline for the front and back end of my site. My first &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pipeline uses GitHub actions and workflow to push any changes in the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master branch of my repo to S3. My second pipeline has the same &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;functionality except it utilizes AWS Code Deploy to build, test, and deploy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my SAM template. Testing was performed by issuing a key/value payload &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the lambda function.
+4. Lastly, I built a CI/CD pipeline for the front and back end of my site. My first &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pipeline uses GitHub 
+   actions and workflow to push any changes in the &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master branch of my repo to S3. My second pipeline has the same 
+   functionality except it utilizes AWS Code Deploy to build, test, and deploy my SAM template. Testing was performed by issuing a key/value payload 
+   to the lambda function.
