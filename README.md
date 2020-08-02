@@ -10,6 +10,7 @@ I completed the challenge by breaking the project into groups with similar tasks
 1. I started by designing my website using Bootstrap. Next, I created a CloudFormation template to automatically deploy my CloudFront distribution linking an S3 bucket as an origin so that the site is only accessible through CloudFront. Lastly, I purchased my domain and set the CNAME to point to CloudFront.
 2. I created my development environment by installing python, aws cli, aws sam cli, and httpie. I used VSCode with the AWS and python plugins, as my IDE. 
 3. Creating the API, lambda function, and DynamoDB table was the most intensive part. A few essential items that I needed to learn:
+
        - How these services worked in tandem
        - How to create a table that updated a single record verse a table that would generate a record per visit
        - Learn python
