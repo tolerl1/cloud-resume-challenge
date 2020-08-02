@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Backend for site view counter
+
+Globals:
+  #https://github.com/awslabs/serverless-application-model/blob/develop/docs/globals.rst
+  Function:
+    Runtime: python3.8
+    MemorySize: 128
+     
+Resources:
+  ResumeFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      
+      FunctionName: ResumeFunction
+      CodeUri: ./
+      Handler: src/handlers/lambda_function.lambda_handler
+      Description: Backend for site view counter
+      Timeout: 3
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref CounterTable
+      Events:
+        ResumeViews:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ResumeViewCountApi
+            Path: /counter
+            Method: get
+        
+            
+  ResumeViewCountApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Cors:
+        AllowOrigin: "'https://resume.logan-toler.dev'"
+      EndpointConfiguration: Regional
+      OpenApiVersion: 3.0.1
+      StageName: Prod
+      
+  CounterTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions: 
+        - AttributeName: siteviews
+          AttributeType: S
+      KeySchema: 
+        - AttributeName: siteviews
+          KeyType: HASH
+      TableName: countertable

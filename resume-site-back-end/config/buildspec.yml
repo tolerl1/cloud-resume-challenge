@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+       python: 3.8
+    commands:
+      - pip install cfn-lint
+      - pip install --upgrade pip
+  build:
+    commands:
+      - echo packaging project
+      - cfn-lint -t template.yml
+      - aws cloudformation package --template-file template.yml --s3-bucket ${PACKAGE_BUCKET} --output-template-file packaged-template.yml
+      - echo testing project
+      - aws lambda invoke --function-name ResumeFunction --payload tests/test-payload.json tests/test-output.txt --query 'LogResult' | tr -d '"' | base64 --decode
+      - echo passing off to CodeDeploy for stack creation
+artifacts:
+  files:
+    - packaged-template.yml
