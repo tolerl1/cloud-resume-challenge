@@ -1,5 +1,2 @@
-# resume-site-back-end
-
-For cloud resume challenge 
-
-back-end for resume site to control resume counter. CI/CD through AWS Code Pipeline.
+<p>Back-end for resume site to control resume counter. CI/CD through AWS CodePipeline & Code Deploy.</p>
+<p>Services used: API Gateway, DynamoDB, and Lambda</p>
