@@ -16,9 +16,9 @@ I completed the challenge by breaking the project into groups with similar tasks
        - Learn python
        - How to call an API
 
-    For my lambda function, I used DynamoDB's atomic counter feature to update the table each time my API endpoint gets called. 
-    Additionally, I included a function to serialize / deserialize the response to bypass API Gateway's decimal encoder limitation.
-    My API uses a single GET method with CORS enabled. An XMLHttpRequest written in JavaScript is used to call the API and displayed using a DOM element.
+    &nbsp;&nbsp;For my lambda function, I used DynamoDB's atomic counter feature to update the table each time my API endpoint gets &nbsp;&nbsp;called. 
+    Additionally, I included a function to serialize / deserialize the response to bypass API Gateway's decimal encoder &nbsp;&nbsp;limitation.
+    My API uses a single GET method with CORS enabled. An XMLHttpRequest written in JavaScript is used to call the &nbsp;&nbsp;API and displayed using a DOM element.
 
 4. Lastly, I built a CI/CD pipeline for the front and back end of my site. My first pipeline uses GitHub actions and workflow 
    to push any changes in the master branch of my repo to S3. My second pipeline has the same functionality except it utilizes 
