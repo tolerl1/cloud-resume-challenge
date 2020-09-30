@@ -1,3 +1,5 @@
+*Public copy of the private repo. Code may not reflect the current release of the website*.
+
 <h3>A serverless resume website with view counter using AWS. Built to participate in <a href="https://aws.amazon.com/developer/community/heroes/forrest-brazeal">Forrest Brazeal's</a> Cloud Resume <a href="https://cloudresumechallenge.dev/instructions/">Challenge</a>.</h3> 
 
 <h4><i>Publication on <a href="https://dev.to/tolerl1/the-cloud-resume-challenge-oao">solution</a></i></h4>
